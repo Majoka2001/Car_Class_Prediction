@@ -1,6 +1,6 @@
 # 🚗 Car Evaluation: Categorical Feature Association Analysis
 
-This project explores the relationships between categorical features in the **Car Evaluation Dataset** using statistical association tests. The aim is to deeply understand the structure of the data before proceeding to feature encoding and machine learning.
+This project explores the relationships between categorical features in the **Car Evaluation Dataset** using statistical association tests like chi2 test, spearman correlation coefficient and kendall tau before proceeding to preprocessing tasks like feature encoding, feature engineering and scaling and handling data imbalance using SMOTE. Then, an SVC classifier is used to make predictions about Car Classes on test data. 
 
 ---
 
@@ -9,7 +9,8 @@ This project explores the relationships between categorical features in the **Ca
 Before diving into machine learning, it's crucial to know which features are potentially **informative** and **correlated**—both with each other and with the target variable. This notebook answers questions like:
 
 - Are `maintenance cost` and `safety` levels related?
-- Do `number of doors` and `passenger capacity` influence each other?
+- Do cars with higher buying cost usually have high maintenance cost as well?
+- How does seating capacity of a car correlate to its number of doors?
 - Which features show **statistical dependence** on the **target class**?
 
 ---
@@ -22,17 +23,23 @@ Before diving into machine learning, it's crucial to know which features are pot
 - **Cramér’s V**  
   To quantify the **strength** of association between categorical variables (scale: 0 to 1).
 
+- **Spearman's Correlation Coefficient and Kendall Tau**
+  To assess how strongly the categorical features correlate to each other and the direction of correlation.  
+
 - **Heatmaps**  
   For visual representation of contingency tables.
 
-- **Spearman's Rank Correlation**  
-  (Optional) For testing ordinal relationships when applicable.
+- **StandardScaler**
+  For scaling the features in the dataset before proceeding to machine learning.
+
+- **SMOTE**
+  To handle the imbalance in the training set so majority classes do not dominate the minority classes when it comes to class prediction. 
 
 ---
 
 ## 📁 Dataset
 
-The project uses the [UCI Car Evaluation Dataset](https://archive.ics.uci.edu/ml/datasets/car+evaluation), which includes features like:
+The project uses the dataset at: [(https://archive.ics.uci.edu/dataset/19/car+evaluation)], which includes features like:
 
 - `buying`: buying price
 - `maint`: maintenance cost
